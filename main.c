@@ -14,12 +14,16 @@ int main()
     printf("operadores (+, -, *, e /). Ao final de cada expressao, se ela estiver correta,\n");
     printf("uma mensagem com essa indicacao sera emitida e, em seguida, uma nova \n");
     printf("expressao pode ser digitada.\n");
-    printf("Termine a entrda de expressoes com um sinal de igualdade (=) sem expressao.\n");
+    printf("Termine a entrada de expressoes com um sinal de igualdade (=) sem expressao.\n");
+    printf("Ocorrencias de caracteres apos o sinal de igualdade (=) serao desprezadas.\n");
     printf("\nExpr> ");
     Analex(stdin);
     while (t.cat != SN || t.cod != IGUAL) {
         Expr();
-        printf("Resultado> Expressao correta!\n");
+        if (t.cat==SN && t.cod==IGUAL)
+            printf("Resultado> Expressao OK!\n");
+        else
+            Erro(1);
         printf("\nExpr> ");
         fflush(stdin);
         Analex(stdin);
